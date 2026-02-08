@@ -40,3 +40,9 @@
 .read-the-docs {
   color: #888;
 }
+
+.room {
+  display: flex;
+  justify-content: center;
+  height: 1100px
+}

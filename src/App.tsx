@@ -1,12 +1,12 @@
 import './App.css';
-import Light from './components/Light';
+import Room from './components/Room';
 import { useHomeAssistant } from './hooks/useHomeAssistant';
 import { useLights } from './hooks/useLights';
-
-
+import EntityDropdown from './components/EntityDropdown';
 export default function App() {
   const { status, error } = useHomeAssistant();
   const { lights } = useLights();
+
 
   return (
     <>
@@ -16,10 +16,11 @@ export default function App() {
         {error && <p style={{ color: 'red' }}>Error: {error}</p>}
       </div>
 
-      <div>
+      <div style={{ margin: '20px 0' }}>
         <h2>Lights</h2>
-        {lights.map(light => <Light key={light.entity_id} light={light} />)}
       </div>
+      <EntityDropdown entities={lights} />
+      <Room />
     </>
   );
-}
+} 
